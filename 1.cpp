@@ -23,6 +23,8 @@ vector<int> dijkstra(int n, vector<vector<Edge>> &graph, int start)
     {
         auto [curDist, u] = pq.top();
         pq.pop();
+        if (curDist > dist[u])
+            continue;
         for (auto edge : graph[u])
         {
             int v = edge.to;
